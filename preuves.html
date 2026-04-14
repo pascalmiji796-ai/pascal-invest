@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preuves de Paiements | Pascal Invest</title>
+    <title>Preuves | Pascal Invest</title>
     <style>
-        body { margin: 0; font-family: sans-serif; background: #1a1a1a; color: white; text-align: center; }
-        nav { background: #000; padding: 15px; border-bottom: 2px solid #f1c40f; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
-        .card { background: #222; padding: 15px; border-radius: 10px; border: 1px solid #333; }
-        .status { color: #27ae60; font-weight: bold; margin-top: 10px; border: 1px solid #27ae60; padding: 5px; border-radius: 5px; display: inline-block; }
-        .btn-back { display: inline-block; margin-top: 30px; color: #f1c40f; text-decoration: none; border: 1px solid #f1c40f; padding: 12px 25px; border-radius: 5px; font-weight: bold; }
+        body { margin: 0; font-family: sans-serif; background: #0a0a0a; color: white; text-align: center; }
+        .header-p { padding: 40px; background: #111; border-bottom: 2px solid #f1c40f; }
+        .transaction-list { max-width: 600px; margin: 30px auto; padding: 15px; }
+        .t-card { background: #1a1a1a; padding: 20px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #333; }
+        .status-pill { background: #27ae60; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .amount { color: #f1c40f; font-size: 20px; font-weight: bold; }
+        .btn-home { display: inline-block; padding: 15px 30px; border: 2px solid #f1c40f; color: #f1c40f; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 40px 0; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div style="color: #f1c40f; font-weight: bold; font-size: 20px;">PASCAL INVEST - PREUVES</div>
-    </nav>
+<div class="header-p">
+    <h1 style="color: #f1c40f;">TRANSACTIONS RÉCENTES</h1>
+    <p>La transparence est notre priorité. Voici les derniers retraits.</p>
+</div>
 
-    <h1 style="margin-top: 40px;">Retraits Confirmés ✅</h1>
-    <p style="color: #bbb;">Voici les dernières transactions envoyées à nos membres.</p>
-
-    <div class="grid">
-        <div class="card">
-            <p>💰 Montant : <strong>250$</strong></p>
-            <p>👤 Bénéficiaire : <strong>Jean-Marc B.</strong></p>
-            <div class="status">TRANSFERT RÉUSSI</div>
+<div class="transaction-list">
+    <div class="t-card">
+        <div style="text-align: left;">
+            <strong>Musalizi D.</strong><br>
+            <small style="color: #888;">Il y a 14 minutes</small>
         </div>
-        <div class="card">
-            <p>💰 Montant : <strong>115$</strong></p>
-            <p>👤 Bénéficiaire : <strong>Sarah L.</strong></p>
-            <div class="status">TRANSFERT RÉUSSI</div>
-        </div>
-        <div class="card">
-            <p>💰 Montant : <strong>500$</strong></p>
-            <p>👤 Bénéficiaire : <strong>Alain T.</strong></p>
-            <div class="status">TRANSFERT RÉUSSI</div>
-        </div>
+        <div class="amount">+350$</div>
+        <div class="status-pill">PAYÉ</div>
     </div>
 
-    <a href="index.html" class="btn-back">⬅ RETOUR À L'ACCUEIL</a>
+    <div class="t-card">
+        <div style="text-align: left;">
+            <strong>Kabongo J.</strong><br>
+            <small style="color: #888;">Il y a 42 minutes</small>
+        </div>
+        <div class="amount">+120$</div>
+        <div class="status-pill">PAYÉ</div>
+    </div>
+
+    <div class="t-card">
+        <div style="text-align: left;">
+            <strong>Anonymous User</strong><br>
+            <small style="color: #888;">Il y a 2 heures</small>
+        </div>
+        <div class="amount">+800$</div>
+        <div class="status-pill">PAYÉ</div>
+    </div>
+</div>
+
+<a href="index.html" class="btn-home">RETOUR AU CALCULATEUR</a>
 
 </body>
 </html>
