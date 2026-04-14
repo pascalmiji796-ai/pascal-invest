@@ -78,6 +78,42 @@
             res.innerHTML = `<span style="font-size: 20px;">💰 Gain net : <b>${profit.toFixed(2)}$</b></span><br><span style="font-size: 24px; color: #27ae60;">🚀 Total Final : <b>${total.toFixed(2)}$</b></span>`;
         }
     }
+</script> <div id="notif-bar" 
+style="background: #e74c3c; color: 
+white; padding: 10px; text-align: 
+center; font-size: 14px; font-weight: 
+bold; position: fixed; width: 100%; top: 
+60px; z-index: 99; display: none;"> 
+> 
+</div> <script>
+    const notifications = [ "Musalizi D. 
+        vient de retirer 350$ via Airtel 
+        Money", "Nouvel investissement 
+        de 100$ reçu de Kinshasa", 
+        "Retrait validé : +120$ pour 
+        Kabongo J.", "Plus que 3 places 
+        disponibles pour le Plan Gold 
+        aujourd'hui !", "Dernier 
+        paiement : 800$ envoyé il y a 5 
+        minutes"
+    ]; function showNotification() { 
+        const bar = 
+        document.getElementById('notif-bar'); 
+        const text = 
+        document.getElementById('notif-text'); 
+        const rand = 
+        Math.floor(Math.random() * 
+        notifications.length);
+        
+        text.innerText = 
+        notifications[rand]; 
+        bar.style.display = 'block'; 
+        setTimeout(() => { 
+        bar.style.display = 'none'; }, 
+        5000);
+    }
+        setInterval(showNotification, 15000);
+    setTimeout(showNotification, 3000);
 </script>
 
 </body>
