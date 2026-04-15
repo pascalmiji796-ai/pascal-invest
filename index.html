@@ -3,117 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pascal Invest | Expertise Financière</title>
+    <title>PASCAL INVEST - Accueil</title>
     <style>
-        :root { --gold: #f1c40f; --dark: #0a0a0a; --gray: #1a1a1a; }
-        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--dark); color: white; scroll-behavior: smooth; }
-        nav { background: rgba(0,0,0,0.9); padding: 15px; text-align: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 100; }
-        .hero { padding: 80px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071'); background-size: cover; }
-        .calc-container { background: var(--gray); padding: 30px; border-radius: 20px; max-width: 450px; margin: -60px auto 40px; border: 1px solid #333; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
-        h1 { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
-        input, select { width: 100%; padding: 15px; margin: 15px 0; border-radius: 8px; border: 1px solid #444; background: #222; color: white; font-size: 16px; }
-        .calc-btn { width: 100%; background: var(--gold); color: black; border: none; padding: 18px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 18px; transition: 0.3s; }
-        .calc-btn:hover { transform: scale(1.02); background: #d4ac0d; }
-        .btn-wa { display: block; background: #25d366; color: white; text-decoration: none; padding: 18px; border-radius: 50px; font-weight: bold; margin: 20px auto; max-width: 320px; text-align: center; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
-        .faq { max-width: 800px; margin: 40px auto; padding: 20px; text-align: left; }
-        .faq-item { background: #161616; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 4px solid var(--gold); }
-        #result { margin-top: 20px; padding: 20px; background: rgba(39, 174, 96, 0.2); border: 1px solid #27ae60; border-radius: 8px; display: none; text-align: center; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; padding-top: 70px; text-align: center; }
+        #notif-bar {
+            background: #ff0000; color: white; padding: 15px;
+            position: fixed; top: 0; left: 0; width: 100%;
+            z-index: 10000; font-weight: bold; border-bottom: 2px solid #fff;
+        }
+        .container { padding: 20px; }
+        .logo { font-size: 32px; font-weight: bold; color: #ff0000; }
+        .btn-main {
+            background: #ff0000; color: white; padding: 18px 35px;
+            border: none; border-radius: 30px; font-size: 18px; font-weight: bold;
+            cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 0;
+        }
+        .calc-box { background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; max-width: 400px; margin: 20px auto; }
+        input, select { padding: 12px; width: 90%; margin: 10px 0; border-radius: 8px; border: 1px solid #444; background: #222; color: #fff; }
+        .whatsapp-float {
+            position: fixed; bottom: 20px; right: 20px; background: #25d366; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; z-index: 10001; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div style="font-size: 26px; color: var(--gold); font-weight: bold; letter-spacing: 3px;">PASCAL INVEST</div>
-    <div style="margin-top: 10px;">
-        <a href="preuves.html" style="color: white; text-decoration: none; margin: 0 10px;">📊 Preuves</a>
-        <a href="#faq" style="color: white; text-decoration: none; margin: 0 10px;">❓ FAQ</a>
-    </div>
-</nav>
-
-<header class="hero">
-    <h1>L'Excellence de l'Investissement</h1>
-    <p>Sécurisez votre avenir avec des rendements certifiés.</p>
-</header>
-
-<div class="calc-container">
-    <h2 style="text-align: center; margin-bottom: 25px;">Simulateur de Profit</h2>
-    <label>Capital à investir ($)</label>
-    <input type="number" id="montant" placeholder="Entrez le montant en dollars">
-    
-    <label>Choisir un Plan</label>
-    <select id="plan">
-        <option value="0.10">Bronze Plan (+10% / 24h)</option>
-        <option value="0.25">Silver Plan (+25% / 24h)</option>
-        <option value="0.50">Gold Plan (+50% / 24h)</option>
-    </select>
-
-    <button class="calc-btn" onclick="calculer()">OBTENIR MON RÉSULTAT</button>
-    
-    <div id="result"></div>
-    
-    <a href="https://wa.me/243830827301" class="btn-wa">DISCUTER SUR WHATSAPP</a>
+<div id="notif-bar">
+    🔥 <span id="notif-text">Initialisation des transactions...</span>
 </div>
 
-<section class="faq" id="faq">
-    <h2 style="text-align: center; color: var(--gold);">Questions Fréquentes</h2>
-    <div class="faq-item">
-        <strong>1. Comment effectuer un dépôt ?</strong>
-        <p>Les dépôts se font via Mobile Money (AirtelMoney, M-Pesa, Orange Money) directement sur WhatsApp.</p>
+<div class="container">
+    <div class="logo">PASCAL INVEST</div>
+    <p style="color: #aaa;">La plateforme leader d'investissement en RDC.</p>
+    
+    <a href="preuves.html" class="btn-main">S'INSCRIRE / SE CONNECTER</a>
+    
+    <div class="calc-box">
+        <h3>Calculateur de Profit</h3>
+        <input type="number" id="montant" placeholder="Montant à investir ($)">
+        <select id="plan">
+            <option value="0.5">Plan Argent (50% / 24h)</option>
+            <option value="1">Plan Gold (100% / 48h)</option>
+        </select>
+        <button onclick="calculer()" class="btn-main" style="padding: 10px 20px; font-size: 16px;">Calculer</button>
+        <div id="resultat" style="margin-top: 15px; font-size: 22px; color: #00ff00; font-weight: bold;"></div>
     </div>
-    <div class="faq-item">
-        <strong>2. En combien de temps je reçois mes gains ?</strong>
-        <p>Tous les retraits sont traités automatiquement sous 24 heures après votre investissement.</p>
-    </div>
-</section>
+</div>
+
+<a href="https://wa.me/243830827301" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
+</a>
 
 <script>
+    const notifications = [
+        "Musalizi D. vient de retirer 350$ via Airtel Money",
+        "Nouvel investissement de 100$ reçu de Kinshasa",
+        "Retrait validé : +120$ pour Kabongo J.",
+        "Dernier paiement : 800$ envoyé il y a 5 minutes"
+    ];
+    function updateNotif() {
+        const textElement = document.getElementById('notif-text');
+        const randomIndex = Math.floor(Math.random() * notifications.length);
+        textElement.innerHTML = notifications[randomIndex];
+    }
+    setInterval(updateNotif, 6000);
+    updateNotif();
+
     function calculer() {
-        let m = document.getElementById('montant').value;
-        let p = document.getElementById('plan').value;
-        let res = document.getElementById('result');
+        let m = document.getElementById("montant").value;
+        let p = document.getElementById("plan").value;
         if(m > 0) {
             let profit = m * p;
-            let total = parseFloat(m) + profit;
-            res.style.display = 'block';
-            res.innerHTML = `<span style="font-size: 20px;">💰 Gain net : <b>${profit.toFixed(2)}$</b></span><br><span style="font-size: 24px; color: #27ae60;">🚀 Total Final : <b>${total.toFixed(2)}$</b></span>`;
+            document.getElementById("resultat").innerHTML = "Total : " + (parseFloat(m) + profit).toFixed(2) + " $";
         }
     }
-<div id="notif-bar" style="background: 
-#ff0000; color: white; padding: 15px; 
-text-align: center; font-size: 16px; 
-font-weight: bold; position: fixed; 
-width: 100%; top: 0; left: 0; z-index: 
-9999; display: none; border-bottom: 2px 
-solid white;">
-    🔥 <span id="notif-text" style="color: white;"></span> 
-</div> <script>
-    const notifications = [ "Musalizi D. 
-        vient de retirer 350$ via Airtel 
-        Money", "Nouvel investissement 
-        de 100$ reçu de Kinshasa", 
-        "Retrait validé : +120$ pour 
-        Kabongo J.", "Plus que 3 places 
-        disponibles pour le Plan Gold 
-        !",
-        "Dernier paiement : 800$ envoyé 
-        il y a 5 minutes"
-    ]; function showNotification() { 
-        const bar = 
-        document.getElementById('notif-bar'); 
-        const text = 
-        document.getElementById('notif-text'); 
-        const rand = 
-        Math.floor(Math.random() * 
-        notifications.length);
-        
-        text.innerText = 
-        notifications[rand]; 
-        bar.style.display = 'block'; 
-        setTimeout(() => { 
-        bar.style.display = 'none'; }, 
-        5000);
-    }
-    setInterval(showNotification, 
-    12000); setTimeout(showNotification, 
-    2000);
 </script>
+</body>
+</html>

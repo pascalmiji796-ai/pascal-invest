@@ -1,56 +1,176 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preuves | Pascal Invest</title>
-    <style>
-        body { margin: 0; font-family: sans-serif; background: #0a0a0a; color: white; text-align: center; }
-        .header-p { padding: 40px; background: #111; border-bottom: 2px solid #f1c40f; }
-        .transaction-list { max-width: 600px; margin: 30px auto; padding: 15px; }
-        .t-card { background: #1a1a1a; padding: 20px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #333; }
-        .status-pill { background: #27ae60; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-        .amount { color: #f1c40f; font-size: 20px; font-weight: bold; }
-        .btn-home { display: inline-block; padding: 15px 30px; border: 2px solid #f1c40f; color: #f1c40f; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 40px 0; }
-    </style>
-</head>
-<body>
-
-<div class="header-p">
-    <h1 style="color: #f1c40f;">TRANSACTIONS RÉCENTES</h1>
-    <p>La transparence est notre priorité. Voici les derniers retraits.</p>
-</div>
-
-<div class="transaction-list">
-    <div class="t-card">
-        <div style="text-align: left;">
-            <strong>Musalizi D.</strong><br>
-            <small style="color: #888;">Il y a 14 minutes</small>
-        </div>
-        <div class="amount">+350$</div>
-        <div class="status-pill">PAYÉ</div>
-    </div>
-
-    <div class="t-card">
-        <div style="text-align: left;">
-            <strong>Kabongo J.</strong><br>
-            <small style="color: #888;">Il y a 42 minutes</small>
-        </div>
-        <div class="amount">+120$</div>
-        <div class="status-pill">PAYÉ</div>
-    </div>
-
-    <div class="t-card">
-        <div style="text-align: left;">
-            <strong>Anonymous User</strong><br>
-            <small style="color: #888;">Il y a 2 heures</small>
-        </div>
-        <div class="amount">+800$</div>
-        <div class="status-pill">PAYÉ</div>
-    </div>
-</div>
-
-<a href="index.html" class="btn-home">RETOUR AU CALCULATEUR</a>
-
-</body>
-</html>
+<!DOCTYPE html> <html lang="fr"> <head> 
+    <meta charset="UTF-8"> <meta 
+    name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0"> <title>Dashboard 
+    - PASCAL INVEST</title> <style>
+        :root { --primary: #ff0000; 
+        :--secondary: #00ff00; --bg: 
+        :#000; }
+        body { font-family: 'Segoe UI', 
+        sans-serif; background: 
+        var(--bg); color: #fff; margin: 
+        0; padding-bottom: 80px; }
+        
+        /* Navigation */ .nav-tabs { 
+        display: flex; background: #111; 
+        border-bottom: 2px solid 
+        var(--primary); position: 
+        sticky; top: 0; z-index: 1000; } 
+        .tab { flex: 1; padding: 15px; 
+        cursor: pointer; font-size: 
+        10px; font-weight: bold; color: 
+        #666; transition: 0.3s; 
+        text-align: center; } 
+        .tab.active { color: #fff; 
+        border-bottom: 3px solid 
+        var(--primary); background: 
+        rgba(255,0,0,0.1); } /* 
+        Dashboard Card */ .card { 
+        background: #111; padding: 20px; 
+        border-radius: 20px; border: 1px 
+        solid #333; margin: 15px; 
+        box-sizing: border-box; } 
+        .balance-amount { font-size: 
+        40px; font-weight: 800; color: 
+        var(--secondary); margin: 10px 
+        0; }
+        
+        /* Formulaires */ input, select 
+        { width: 100%; padding: 15px; 
+        margin: 8px 0; border-radius: 
+        10px; border: 1px solid #333; 
+        background: #000; color: #fff; 
+        box-sizing: border-box; } button 
+        { width: 100%; padding: 18px; 
+        margin-top: 10px; border-radius: 
+        10px; border: none; font-weight: 
+        bold; cursor: pointer; 
+        text-transform: uppercase; } 
+        .btn-depot { background: 
+        var(--primary); color: white; }
+        
+        .content { display: none; 
+        animation: fadeIn 0.4s; } 
+        .content.active { display: 
+        block; } @keyframes fadeIn { 
+        from { opacity: 0; } to { 
+        opacity: 1; } } /* --- STYLE DU 
+        CHAT DYNAMIQUE --- */ 
+        .chat-trigger {
+            position: fixed; bottom: 
+            20px; left: 20px; 
+            background: var(--primary); 
+            color: white; padding: 12px 
+            20px; border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold; display: 
+            flex; align-items: center; 
+            gap: 10px; box-shadow: 0 4px 
+            15px rgba(255,0,0,0.4); 
+            z-index: 10002; border: 2px 
+            solid #fff; transition: 
+            0.3s; font-size: 13px;
+        }
+        .chat-window { position: fixed; 
+            bottom: 85px; left: 20px; 
+            width: 280px; background: 
+            #151515; border-radius: 
+            15px; border: 1px solid 
+            #333; box-shadow: 0 10px 
+            30px rgba(0,0,0,0.8); 
+            display: none; 
+            flex-direction: column; 
+            overflow: hidden; z-index: 
+            10003; animation: slideIn 
+            0.3s ease;
+        }
+        .chat-header { background: 
+        var(--primary); padding: 15px; 
+        font-weight: bold; display: 
+        flex; justify-content: 
+        space-between; align-items: 
+        center; } .chat-body { padding: 
+        15px; font-size: 13px; color: 
+        #ddd; text-align: left; }
+        .online-dot { color: #00ff00; 
+        font-size: 10px; font-weight: 
+        bold; display: block; 
+        margin-bottom: 8px; } 
+        .chat-btn-wa {
+            background: #25d366; color: 
+            white; text-decoration: 
+            none; padding: 12px; 
+            border-radius: 8px; 
+            text-align: center; display: 
+            block; font-weight: bold; 
+            margin-top: 12px;
+        }
+        @keyframes slideIn { from { 
+        transform: translateY(20px); 
+        opacity: 0; } to { transform: 
+        translateY(0); opacity: 1; } }
+    </style> </head> <body> <div 
+    class="nav-tabs">
+        <div id="t-home" class="tab 
+        active" 
+        onclick="showTab('home')">SOLDE</div> 
+        <div id="t-depot" class="tab" 
+        onclick="showTab('depot')">INVESTIR</div> 
+        <div id="t-retrait" class="tab" 
+        onclick="showTab('retrait')">RETRAIT</div>
+    </div> <div id="home" class="content 
+    active">
+        <div class="card" 
+        style="text-align: center;">
+            <div style="font-size: 12px; 
+            color: #888; letter-spacing: 
+            1px;">VOTRE SOLDE 
+            ACTUEL</div> <div 
+            class="balance-amount">0.00 
+            $</div> <div 
+            style="font-size: 11px; 
+            background: 
+            rgba(0,255,0,0.1); color: 
+            var(--secondary); padding: 
+            5px; border-radius: 5px; 
+            display: inline-block;">
+                Compte Sécurisé : Pascal 
+                Invest
+            </div> </div> <div 
+        class="card">
+            <h4 style="margin: 0; color: 
+            var(--primary); font-size: 
+            14px;">Dernière 
+            Activité</h4> <p 
+            style="font-size: 12px; 
+            color: #555;">En attente de 
+            votre premier dépôt...</p>
+        </div> </div> <div id="depot" 
+    class="content">
+        <div class="card"> <h3 
+            style="margin-top: 
+            0;">Effectuer un Dépôt</h3> 
+            <p style="font-size: 13px; 
+            color: #888;">Airtel Money : 
+            <strong style="color: 
+            #fff;">+243 830 827 
+            301</strong></p> <form 
+            action="https://formspree.io/f/xdayanev" 
+            method="POST">
+                <input type="text" 
+                name="Nom" 
+                placeholder="Nom 
+                Complet" required> 
+                <select name="Plan" 
+                required>
+                    <option 
+                    value="ARGENT">Plan 
+                    Argent (50% / 
+                    24h)</option> 
+                    <option 
+                    value="GOLD">Plan 
+                    Gold (100% / 
+                    48h)</option>
+                </select>
+                <input type="number" name="Montant" placeholder
