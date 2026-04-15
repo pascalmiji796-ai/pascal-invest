@@ -78,13 +78,14 @@
             res.innerHTML = `<span style="font-size: 20px;">💰 Gain net : <b>${profit.toFixed(2)}$</b></span><br><span style="font-size: 24px; color: #27ae60;">🚀 Total Final : <b>${total.toFixed(2)}$</b></span>`;
         }
     }
-</script> <div id="notif-bar" 
-style="background: #e74c3c; color: 
-white; padding: 10px; text-align: 
-center; font-size: 14px; font-weight: 
-bold; position: fixed; width: 100%; top: 
-60px; z-index: 99; display: none;"> 
-> 
+<div id="notif-bar" style="background: 
+#ff0000; color: white; padding: 15px; 
+text-align: center; font-size: 16px; 
+font-weight: bold; position: fixed; 
+width: 100%; top: 0; left: 0; z-index: 
+9999; display: none; border-bottom: 2px 
+solid white;">
+    🔥 <span id="notif-text"></span> 
 </div> <script>
     const notifications = [ "Musalizi D. 
         vient de retirer 350$ via Airtel 
@@ -93,9 +94,9 @@ bold; position: fixed; width: 100%; top:
         "Retrait validé : +120$ pour 
         Kabongo J.", "Plus que 3 places 
         disponibles pour le Plan Gold 
-        aujourd'hui !", "Dernier 
-        paiement : 800$ envoyé il y a 5 
-        minutes"
+        !",
+        "Dernier paiement : 800$ envoyé 
+        il y a 5 minutes"
     ]; function showNotification() { 
         const bar = 
         document.getElementById('notif-bar'); 
@@ -112,10 +113,7 @@ bold; position: fixed; width: 100%; top:
         bar.style.display = 'none'; }, 
         5000);
     }
-        setInterval(showNotification, 15000);
-    setTimeout(showNotification, 3000);
+    setInterval(showNotification, 
+    12000); setTimeout(showNotification, 
+    2000);
 </script>
-
-</body>
-</html>
-
